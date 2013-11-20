@@ -1,4 +1,4 @@
 WHMCS-Direct-Module
 ===================
 
-integration module for WHMCS
+Cardstream direct integration module for WHMCS www.whmcs.com
