@@ -66,7 +66,7 @@ function cardstream_capture($params)
             "customerEmail" => $params['clientdetails']['email'],
             "customerPhone" => $params['clientdetails']['phonenumber'],
             "threeDSRequired" => 'N',
-            "merchantPwd" => $params['merchantPwd']
+            "merchantData" => 'WHMCS-Direct-1'
 
         );
 
