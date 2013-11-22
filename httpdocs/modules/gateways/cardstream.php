@@ -20,7 +20,6 @@ function cardstream_config()
         "merchantid" => array("FriendlyName" => "Merchant ID", "Type" => "text", "Size" => "20",),
         "currencycode" => array("FriendlyName" => "Currency Code", "Type" => "text", "Size" => "20",'Description' => '826 for UK'),
         "countrycode" => array("FriendlyName" => "Country Code", "Type" => "text", "Size" => "20",'Description' => '826 for UK'),
-        "merchantPwd" => array("FriendlyName" => "Merchant Password", "Type" => "text", "Size" => "20"),
         "merchantPassphrase" => array("FriendlyName" => "Merchant Passphrase", "Type" => "text", "Size" => "100")
     );
     return $configarray;
@@ -65,7 +64,6 @@ function cardstream_capture($params)
             "customerEmail" => $params['clientdetails']['email'],
             "customerPhone" => $params['clientdetails']['phonenumber'],
             "threeDSRequired" => 'N',
-            "merchantPwd" => $params['merchantPwd'],
             "action" => 'SALE',
             'type' => 1
 
@@ -263,7 +261,6 @@ function cardstream_storeremote($params){
             "customerEmail" => $params['clientdetails']['email'],
             "customerPhone" => $params['clientdetails']['phonenumber'],
             "threeDSRequired" => 'N',
-            "merchantPwd" => $params['merchantPwd'],
             "action" => 'PREAUTH',
             'type' => 1,
             'duplicateDelay' => 1
