@@ -27,7 +27,8 @@ function cardstream_config()
 
 function cardstream_capture($params)
 {
-
+// return array("status" => "error", "rawdata" => $params);
+//die(var_dump($params));
     if ($params['merchantid'] && is_numeric($params['currencycode']) && is_numeric($params['countrycode'])) {
         //Module correctly configured.
 
@@ -71,8 +72,8 @@ function cardstream_capture($params)
 
         // If we have card expiry date then assign form fields.
         if (($params['cardexp']) && (is_numeric($params['cardexp']))) {
-            $orderdata['cardExpiryMonth'] = substr($params['cardexp'], 0, 2);
-            $orderdata['cardExpiryYear'] = substr($params['cardexp'], 2, 4);
+         //   $orderdata['cardExpiryMonth'] = substr($params['cardexp'], 0, 2);
+          //  $orderdata['cardExpiryYear'] = substr($params['cardexp'], 2, 4);
         }
 
         // Construct name
@@ -88,7 +89,8 @@ function cardstream_capture($params)
         }
 
         if (isset($params['merchantPassphrase'])) {
-            $sig_fields = http_build_query($orderdata) . $params['merchantPassphrase'];
+		ksort($orderdata);
+            $sig_fields = http_build_query($orderdata, '', '&') . $params['merchantPassphrase'];
             $orderdata['signature'] = hash('SHA512', $sig_fields);
         }
 
@@ -98,6 +100,7 @@ function cardstream_capture($params)
                 'ignore_errors' => true
             )
         );
+
         if ($orderdata !== null && !empty($orderdata)) {
             $params = http_build_query($orderdata);
             $cparams["http"]['header'] = 'Content-Type: application/x-www-form-urlencoded';
@@ -115,14 +118,14 @@ function cardstream_capture($params)
         }
 
 
-        if (isset($res['signature'])) {
+       /* if (isset($res['signature'])) {
             $check = $res;
             unset($check['signature']);
             ksort($check);
-            $sig_check = ($res['signature'] == hash("SHA512", http_build_query($check) . $params['merchantPassphrase']));
-        }
+            $sig_check = ($res['signature'] == hash("SHA512", http_build_query($check, '', '&') . $params['merchantPassphrase']));
+        }*/
 
-      //  die(var_dump($res));
+       // die(var_dump($res));
         // Detect the outcome of the transaction
         if ($res['responseCode'] == 0) {
             //Sucesfull transaction.
@@ -286,7 +289,8 @@ function cardstream_storeremote($params){
         }
 
         if (isset($params['merchantPassphrase'])) {
-            $sig_fields = http_build_query($orderdata) . $params['merchantPassphrase'];
+		ksort($orderdata);
+            $sig_fields = http_build_query($orderdata, '', '&') . $params['merchantPassphrase'];
             $orderdata['signature'] = hash('SHA512', $sig_fields);
         }
 
@@ -313,12 +317,12 @@ function cardstream_storeremote($params){
         }
 
 
-        if (isset($res['signature'])) {
+       /* if (isset($res['signature'])) {
             $check = $res;
             unset($check['signature']);
             ksort($check);
-            $sig_check = ($res['signature'] == hash("SHA512", http_build_query($check) . $params['merchantPassphrase']));
-        }
+            $sig_check = ($res['signature'] == hash("SHA512", http_build_query($check, '', '&') . $params['merchantPassphrase']));
+        }*/
 
          // die(var_dump($orderdata,$res));
         // Detect the outcome of the transaction
