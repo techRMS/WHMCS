@@ -1,6 +1,6 @@
 Compatibility
 =================================
-Tested up to version 6.3
+Tested up to version 6.3.1
 
 PREAUTH module
 =================================
