@@ -1,4 +1,6 @@
-Compatible with version 5.3.11
+Compatibility
+=================================
+Tested up to version 6.3
 
 PREAUTH module
 =================================
