@@ -256,7 +256,7 @@ function cardstream_storeremote($params){
             "cardCVV" => $params['cardcvv'],
             "countryCode" => $params['countrycode'],
             "currencyCode" => $params['currencycode'],
-            "amount" => 101,
+            "amount" => 0,
             "transactionUnique" => $params['invoiceid'],
             "orderRef" => $params['description'],
             "customerAddress" => $formattedstreetaddress,
@@ -264,7 +264,7 @@ function cardstream_storeremote($params){
             "customerEmail" => $params['clientdetails']['email'],
             "customerPhone" => $params['clientdetails']['phonenumber'],
             "threeDSRequired" => 'N',
-            "action" => 'PREAUTH',
+            "action" => 'VERIFY',
             'type' => 1,
             'duplicateDelay' => 1
 
