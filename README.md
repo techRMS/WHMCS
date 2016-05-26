@@ -1,15 +1,18 @@
-Compatibility
-===================
-
 Compatible with version 5.3.11
 
-WHMCS-Direct-Module - Installation Instructions
-===================
+PREAUTH module
+=================================
+This module uses a PREATUH action for the intial transaction
 
-Cardstream direct integration module for WHMCS www.whmcs.com
+Project Code: [GitHub Code](https://github.com/cardstream/WHMCS-Direct-Module/tree/preauth)
 
-1. Copy the contents of the httpdocs into your root folder.
-2. Log into the admin section of your website.
-3. Using the menu at the top of the page, hover over 'Setup' to display a drop-down menu. Hover over 'Payments' and then select 'Payment Gateways'.
-4. Click on the 'Activate Module' drop down menu, and select 'Cardstream' from the list. Click on the 'Activate' button.
-5. Make sure 'Show on Order form' is checked and enter the relevant details, i.e. MerchantID and currency codes. Click Save Changes.
+Downloadable: [Download Plugin Link](https://github.com/cardstream/WHMCS-Direct-Module/archive/preauth.zip)
+
+
+VERIFY module
+=================================
+This module uses a VERIFY action for the inital transaction
+
+Project Code: [GitHub Code](https://github.com/cardstream/WHMCS-Direct-Module/tree/verify)
+
+Downloadable: [Download Plugin Link](https://github.com/cardstream/WHMCS-Direct-Module/archive/verify.zip)
