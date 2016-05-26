@@ -1,7 +1,7 @@
 Compatibility
 ===================
 
-Compatible with version 5.3.11
+Compatible with up to version 6.3.1
 
 WHMCS-Direct-Module - Installation Instructions
 ===================
